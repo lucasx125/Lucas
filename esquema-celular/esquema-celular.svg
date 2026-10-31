@@ -1,0 +1,282 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1090" viewBox="0 0 1320 1090" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d32f2f"/></marker>
+    <marker id="ad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1565c0"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d32"/></marker>
+    <style>
+      .blk{fill:#fafafa;stroke:#333;stroke-width:1.6;rx:8}
+      .soc{fill:#fff8e1;stroke:#e65100;stroke-width:2.4}
+      .pwr{fill:#ffebee;stroke:#c62828;stroke-width:1.8}
+      .rf{fill:#e8f5e9;stroke:#2e7d32;stroke-width:1.8}
+      .t{font-size:14px;font-weight:bold;text-anchor:middle}
+      .s{font-size:11px;text-anchor:middle;fill:#444}
+      .l{font-size:10.5px;fill:#333}
+      .pl{stroke:#d32f2f;stroke-width:2.2;fill:none}
+      .dl{stroke:#1565c0;stroke-width:1.8;fill:none}
+      .rl{stroke:#2e7d32;stroke-width:2;fill:none;stroke-dasharray:6 3}
+    </style>
+  </defs>
+
+  <rect width="1320" height="1090" fill="#ffffff"/>
+  <text x="660" y="32" font-size="22" font-weight="bold" text-anchor="middle">Esquema Elétrico em Blocos – Smartphone Genérico</text>
+  <text x="660" y="52" font-size="12" text-anchor="middle" fill="#555">Diagrama simplificado para fins didáticos (não corresponde a nenhum modelo comercial específico)</text>
+
+  <g transform="translate(0,50)">
+  <!-- ===================== ALIMENTAÇÃO ===================== -->
+  <rect x="40" y="80" width="200" height="90" rx="8" class="pwr"/>
+  <text x="140" y="108" class="t">Conector USB-C</text>
+  <text x="140" y="126" class="s">VBUS 5–9 V (USB-PD)</text>
+  <text x="140" y="141" class="s">D+/D− · CC1/CC2 · GND</text>
+  <text x="140" y="156" class="s">Proteção ESD/OVP (TVS)</text>
+
+  <rect x="40" y="220" width="200" height="110" rx="8" class="pwr"/>
+  <text x="140" y="248" class="t">CI Carregador</text>
+  <text x="140" y="266" class="s">Buck chaveado + Power-Path</text>
+  <text x="140" y="281" class="s">CC/CV 4,40 V · até 3–5 A</text>
+  <text x="140" y="296" class="s">Bobina sem fio (Qi) opcional</text>
+  <text x="140" y="315" class="s">Controle: I²C ↔ SoC</text>
+
+  <rect x="40" y="380" width="200" height="130" rx="8" class="pwr"/>
+  <text x="140" y="406" class="t">Bateria Li-ion</text>
+  <text x="140" y="424" class="s">1S · 3,85 V nominal (3,0–4,4 V)</text>
+  <text x="140" y="439" class="s">PCM: proteção sobrecarga,</text>
+  <text x="140" y="454" class="s">descarga e curto (MOSFETs)</text>
+  <text x="140" y="469" class="s">NTC (temperatura) · BSI</text>
+  <text x="140" y="490" class="s">Fuel Gauge (shunt 10 mΩ)</text>
+
+  <rect x="320" y="220" width="220" height="330" rx="8" class="pwr"/>
+  <text x="430" y="248" class="t">PMIC</text>
+  <text x="430" y="264" class="s">Gerenciador de Energia</text>
+  <text x="335" y="292" class="l">BUCK1  VDD_CPU     0,6–1,1 V</text>
+  <text x="335" y="310" class="l">BUCK2  VDD_GPU     0,6–1,0 V</text>
+  <text x="335" y="328" class="l">BUCK3  VDD_CORE    0,75 V</text>
+  <text x="335" y="346" class="l">BUCK4  VDD2 (RAM)  1,05 V</text>
+  <text x="335" y="364" class="l">BUCK5  VDDQ (RAM)  0,5 V</text>
+  <text x="335" y="382" class="l">LDO1   VDD_IO      1,8 V</text>
+  <text x="335" y="400" class="l">LDO2   VCC_UFS     2,5 V</text>
+  <text x="335" y="418" class="l">LDO3   AVDD_CAM    2,8 V</text>
+  <text x="335" y="436" class="l">LDO4   VDD_SIM     1,8/3,0 V</text>
+  <text x="335" y="454" class="l">BOOST  VBAT_PA     até 5 V</text>
+  <text x="335" y="472" class="l">RTC 32,768 kHz · Botão Power</text>
+  <text x="335" y="490" class="l">Sequenciamento / Reset</text>
+  <text x="335" y="508" class="l">ADC (temperatura, VBAT)</text>
+  <text x="430" y="535" class="s">SPMI / I²C ↔ SoC</text>
+
+  <!-- ===================== SoC ===================== -->
+  <rect x="620" y="250" width="320" height="320" rx="10" class="soc"/>
+  <text x="780" y="280" font-size="18" font-weight="bold" text-anchor="middle">SoC (Processador)</text>
+  <text x="780" y="300" class="s">Application Processor</text>
+  <text x="640" y="330" class="l">• CPU ARM multi-core (big.LITTLE)</text>
+  <text x="640" y="350" class="l">• GPU · NPU (IA) · DSP</text>
+  <text x="640" y="370" class="l">• ISP (processamento de imagem)</text>
+  <text x="640" y="390" class="l">• Modem baseband 4G/5G</text>
+  <text x="640" y="410" class="l">• Controlador LPDDR5 / UFS</text>
+  <text x="640" y="430" class="l">• MIPI DSI ×1 · MIPI CSI ×4</text>
+  <text x="640" y="450" class="l">• I²C / I3C / SPI / UART / GPIO</text>
+  <text x="640" y="470" class="l">• USB 3.x · PCIe · SDIO</text>
+  <text x="640" y="490" class="l">• Cristal 38,4 MHz (TCXO)</text>
+  <text x="640" y="510" class="l">• Secure Element / TrustZone</text>
+  <text x="780" y="550" class="s">Encapsulamento BGA / PoP</text>
+
+  <!-- Memórias -->
+  <rect x="610" y="90" width="150" height="100" rx="8" class="blk"/>
+  <text x="685" y="118" class="t">RAM LPDDR5</text>
+  <text x="685" y="138" class="s">8–12 GB</text>
+  <text x="685" y="154" class="s">PoP sobre o SoC</text>
+  <text x="685" y="170" class="s">VDD1/VDD2/VDDQ</text>
+
+  <rect x="800" y="90" width="150" height="100" rx="8" class="blk"/>
+  <text x="875" y="118" class="t">Armazenamento</text>
+  <text x="875" y="138" class="s">UFS 3.1 / 4.0</text>
+  <text x="875" y="154" class="s">128–512 GB</text>
+  <text x="875" y="170" class="s">VCC 2,5 V · VCCQ 1,2 V</text>
+
+  <!-- ===================== PERIFÉRICOS DIREITA ===================== -->
+  <rect x="1040" y="80" width="240" height="90" rx="8" class="blk"/>
+  <text x="1160" y="106" class="t">Display AMOLED</text>
+  <text x="1160" y="124" class="s">Driver IC (DDIC) · MIPI DSI</text>
+  <text x="1160" y="139" class="s">ELVDD +4,6 V / ELVSS −2,4 V</text>
+  <text x="1160" y="154" class="s">Conector FPC</text>
+
+  <rect x="1040" y="190" width="240" height="70" rx="8" class="blk"/>
+  <text x="1160" y="216" class="t">Touchscreen</text>
+  <text x="1160" y="234" class="s">Controlador capacitivo</text>
+  <text x="1160" y="249" class="s">I²C/SPI + linha INT</text>
+
+  <rect x="1040" y="280" width="240" height="90" rx="8" class="blk"/>
+  <text x="1160" y="306" class="t">Câmeras</text>
+  <text x="1160" y="324" class="s">Traseiras (principal/UW/tele)</text>
+  <text x="1160" y="339" class="s">Frontal · MIPI CSI-2</text>
+  <text x="1160" y="354" class="s">AF/OIS via I²C · Flash LED</text>
+
+  <rect x="1040" y="390" width="240" height="100" rx="8" class="blk"/>
+  <text x="1160" y="416" class="t">Sensores</text>
+  <text x="1160" y="434" class="s">Acelerômetro · Giroscópio</text>
+  <text x="1160" y="449" class="s">Magnetômetro · Barômetro</text>
+  <text x="1160" y="464" class="s">Proximidade · Luz ambiente</text>
+  <text x="1160" y="479" class="s">Barramento I²C / I3C</text>
+
+  <rect x="1040" y="510" width="240" height="70" rx="8" class="blk"/>
+  <text x="1160" y="536" class="t">Biometria</text>
+  <text x="1160" y="554" class="s">Leitor de digital (SPI)</text>
+  <text x="1160" y="569" class="s">Óptico / ultrassônico</text>
+
+  <!-- ===================== RF (BAIXO) ===================== -->
+  <rect x="620" y="650" width="190" height="110" rx="8" class="rf"/>
+  <text x="715" y="676" class="t">Transceptor RF</text>
+  <text x="715" y="694" class="s">4G LTE / 5G NR</text>
+  <text x="715" y="709" class="s">Up/Down conversion</text>
+  <text x="715" y="724" class="s">I/Q ↔ Modem do SoC</text>
+  <text x="715" y="744" class="s">Ref. 38,4 MHz</text>
+
+  <rect x="850" y="650" width="190" height="110" rx="8" class="rf"/>
+  <text x="945" y="676" class="t">Front-End RF</text>
+  <text x="945" y="694" class="s">PA (amplificador TX)</text>
+  <text x="945" y="709" class="s">LNA (amplificador RX)</text>
+  <text x="945" y="724" class="s">Filtros SAW/BAW</text>
+  <text x="945" y="739" class="s">Duplexer · Chave de antena</text>
+
+  <rect x="1080" y="650" width="200" height="110" rx="8" class="rf"/>
+  <text x="1180" y="676" class="t">Antenas</text>
+  <text x="1180" y="694" class="s">Celular principal/diversidade</text>
+  <text x="1180" y="709" class="s">5G mmWave (opcional)</text>
+  <text x="1180" y="724" class="s">Wi-Fi/BT · GNSS · NFC</text>
+  <text x="1180" y="739" class="s">Sintonizador de antena</text>
+
+  <rect x="620" y="800" width="190" height="90" rx="8" class="rf"/>
+  <text x="715" y="826" class="t">Wi-Fi / Bluetooth</text>
+  <text x="715" y="844" class="s">Wi-Fi 6E/7 · BT 5.x</text>
+  <text x="715" y="859" class="s">PCIe/SDIO + UART</text>
+  <text x="715" y="874" class="s">Cristal próprio</text>
+
+  <rect x="850" y="800" width="190" height="90" rx="8" class="rf"/>
+  <text x="945" y="826" class="t">GNSS · NFC</text>
+  <text x="945" y="844" class="s">GPS/GLONASS/Galileo</text>
+  <text x="945" y="859" class="s">Controlador NFC (I²C)</text>
+  <text x="945" y="874" class="s">Bobina NFC 13,56 MHz</text>
+
+  <rect x="1080" y="800" width="200" height="90" rx="8" class="blk"/>
+  <text x="1180" y="826" class="t">SIM / eSIM</text>
+  <text x="1180" y="844" class="s">Gaveta nano-SIM</text>
+  <text x="1180" y="859" class="s">CLK · RST · I/O · VSIM</text>
+  <text x="1180" y="874" class="s">eSIM (chip soldado)</text>
+
+  <!-- ===================== ÁUDIO / OUTROS ===================== -->
+  <rect x="320" y="620" width="220" height="130" rx="8" class="blk"/>
+  <text x="430" y="646" class="t">Codec de Áudio</text>
+  <text x="430" y="664" class="s">DAC/ADC · I²S/SoundWire ↔ SoC</text>
+  <text x="430" y="682" class="s">Amplificador classe D (smart amp)</text>
+  <text x="430" y="700" class="s">Alto-falante · Auricular</text>
+  <text x="430" y="718" class="s">Microfones MEMS ×2–3</text>
+  <text x="430" y="736" class="s">Áudio via USB-C</text>
+
+  <rect x="40" y="620" width="200" height="130" rx="8" class="blk"/>
+  <text x="140" y="646" class="t">Interface Física</text>
+  <text x="140" y="664" class="s">Botão Power (→ PMIC)</text>
+  <text x="140" y="682" class="s">Volume +/− (GPIO)</text>
+  <text x="140" y="700" class="s">Motor de vibração</text>
+  <text x="140" y="716" class="s">(driver háptico LRA)</text>
+  <text x="140" y="734" class="s">LED de notificação</text>
+
+  <!-- ===================== LINHAS DE ENERGIA (vermelho) ===================== -->
+  <!-- USB -> Carregador -->
+  <path class="pl" d="M140,170 L140,220" marker-end="url(#ap)"/>
+  <text x="148" y="200" class="l" fill="#c62828">VBUS</text>
+  <!-- Carregador <-> Bateria -->
+  <path class="pl" d="M140,330 L140,380" marker-start="url(#ap)" marker-end="url(#ap)"/>
+  <text x="148" y="360" class="l" fill="#c62828">VBAT</text>
+  <!-- Carregador -> PMIC (VSYS) -->
+  <path class="pl" d="M240,275 L320,275" marker-end="url(#ap)"/>
+  <text x="252" y="268" class="l" fill="#c62828">VSYS 3,4–4,4 V</text>
+  <!-- PMIC -> SoC -->
+  <path class="pl" d="M540,330 L620,330" marker-end="url(#ap)"/>
+  <text x="548" y="323" class="l" fill="#c62828">VDD_CPU/GPU</text>
+  <path class="pl" d="M540,400 L620,400" marker-end="url(#ap)"/>
+  <text x="548" y="393" class="l" fill="#c62828">VDD_CORE/IO</text>
+  <!-- PMIC -> RAM / UFS -->
+  <path class="pl" d="M480,220 L480,140 L610,140" marker-end="url(#ap)"/>
+  <text x="488" y="133" class="l" fill="#c62828">VDD2/VDDQ</text>
+  <path class="pl" d="M510,220 L510,205 L875,205 L875,190" marker-end="url(#ap)"/>
+  <text x="770" y="219" class="l" fill="#c62828">VCC_UFS</text>
+  <!-- PMIC -> Front-end (VBAT_PA) -->
+  <path class="pl" d="M520,550 L520,600 L1000,600 L1000,650" marker-end="url(#ap)"/>
+  <text x="850" y="616" class="l" fill="#c62828">VBAT_PA (boost / ET)</text>
+  <!-- PMIC -> Áudio -->
+  <path class="pl" d="M400,550 L400,620" marker-end="url(#ap)"/>
+  <!-- VSYS -> Display -->
+  <path class="pl" d="M280,275 L280,62 L1000,62 L1000,110 L1040,110" marker-end="url(#ap)"/>
+  <text x="560" y="74" class="l" fill="#c62828">VSYS → conversor ELVDD/ELVSS do display</text>
+
+  <!-- ===================== LINHAS DE DADOS (azul) ===================== -->
+  <!-- SoC <-> RAM / UFS -->
+  <path class="dl" d="M685,190 L685,250" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="693" y="235" class="l" fill="#1565c0">LPDDR5</text>
+  <path class="dl" d="M900,190 L900,250" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="908" y="240" class="l" fill="#1565c0">UFS (M-PHY)</text>
+  <!-- SoC -> periféricos -->
+  <path class="dl" d="M940,270 L1000,270 L1000,140 L1040,140" marker-end="url(#ad)"/>
+  <text x="946" y="262" class="l" fill="#1565c0">MIPI DSI</text>
+  <path class="dl" d="M940,300 L1010,300 L1010,225 L1040,225" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="946" y="293" class="l" fill="#1565c0">I²C/SPI</text>
+  <path class="dl" d="M1040,325 L940,325" marker-end="url(#ad)"/>
+  <text x="972" y="340" class="l" fill="#1565c0">MIPI CSI-2</text>
+  <path class="dl" d="M940,440 L1040,440" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="960" y="433" class="l" fill="#1565c0">I²C / I3C</text>
+  <path class="dl" d="M940,530 L1010,530 L1010,545 L1040,545" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="946" y="523" class="l" fill="#1565c0">SPI</text>
+  <!-- USB dados -> SoC -->
+  <path class="dl" d="M240,100 L300,100 L300,40 L600,40 L600,270 L620,270" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="310" y="36" class="l" fill="#1565c0">USB 3.x (D+/D−, SuperSpeed)</text>
+  <!-- Controle I2C carregador / PMIC -->
+  <path class="dl" d="M240,310 L270,310 L270,580 L580,580 L580,520 L620,520" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="282" y="575" class="l" fill="#1565c0">I²C (carregador / fuel gauge)</text>
+  <path class="dl" d="M540,480 L620,480" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="550" y="473" class="l" fill="#1565c0">SPMI</text>
+  <!-- Bateria fuel gauge -->
+  <path class="dl" d="M240,490 L270,490" />
+  <!-- Áudio <-> SoC -->
+  <path class="dl" d="M540,685 L590,685 L590,550 L620,550" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="548" y="678" class="l" fill="#1565c0">I²S</text>
+  <!-- Interface física -->
+  <path class="dl" d="M240,665 L290,665 L290,500 L320,500" marker-end="url(#ad)"/>
+  <text x="246" y="658" class="l" fill="#1565c0">PWR_KEY</text>
+  <path class="dl" d="M240,700 L280,700 L280,770 L600,770 L600,560 L620,560" marker-end="url(#ad)"/>
+  <text x="380" y="785" class="l" fill="#1565c0">GPIO (volume, háptico)</text>
+  <!-- SoC <-> Transceptor -->
+  <path class="dl" d="M715,570 L715,650" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="722" y="620" class="l" fill="#1565c0">I/Q digital</text>
+  <!-- SoC <-> WiFi -->
+  <path class="dl" d="M640,570 L640,640 L600,640 L600,845 L620,845" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="560" y="830" class="l" fill="#1565c0">PCIe</text>
+  <!-- SoC <-> SIM -->
+  <path class="dl" d="M930,570 L930,590 L1060,590 L1060,845 L1080,845" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="1064" y="800" class="l" fill="#1565c0">UIM</text>
+  <!-- SoC <-> GNSS/NFC -->
+  <path class="dl" d="M840,570 L840,780 L945,780 L945,800" marker-start="url(#ad)" marker-end="url(#ad)"/>
+  <text x="848" y="795" class="l" fill="#1565c0">I²C / UART</text>
+
+  <!-- ===================== LINHAS RF (verde) ===================== -->
+  <path class="rl" d="M810,690 L850,690" marker-end="url(#ar)"/>
+  <path class="rl" d="M850,720 L810,720" marker-end="url(#ar)"/>
+  <text x="815" y="684" class="l" fill="#2e7d32">TX</text>
+  <text x="815" y="736" class="l" fill="#2e7d32">RX</text>
+  <path class="rl" d="M1040,705 L1080,705" marker-start="url(#ar)" marker-end="url(#ar)"/>
+  <path class="rl" d="M810,830 L830,830 L830,775 L1060,775 L1060,740 L1080,740" marker-start="url(#ar)" marker-end="url(#ar)"/>
+  <path class="rl" d="M1040,830 L1050,830 L1050,760 L1080,760" marker-start="url(#ar)" marker-end="url(#ar)"/>
+
+  <!-- ===================== LEGENDA ===================== -->
+  <rect x="40" y="820" width="520" height="190" rx="8" fill="#ffffff" stroke="#999"/>
+  <text x="60" y="846" font-size="15" font-weight="bold">Legenda</text>
+  <line x1="60" y1="870" x2="120" y2="870" class="pl"/>
+  <text x="130" y="874" font-size="12">Alimentação (trilhas de energia)</text>
+  <line x1="60" y1="895" x2="120" y2="895" class="dl"/>
+  <text x="130" y="899" font-size="12">Dados / controle (barramentos digitais)</text>
+  <line x1="60" y1="920" x2="120" y2="920" class="rl"/>
+  <text x="130" y="924" font-size="12">Sinais de radiofrequência (coaxial / microstrip 50 Ω)</text>
+  <rect x="60" y="938" width="22" height="14" class="pwr"/><text x="90" y="950" font-size="12">Bloco de energia</text>
+  <rect x="220" y="938" width="22" height="14" class="rf"/><text x="250" y="950" font-size="12">Bloco de RF</text>
+  <rect x="360" y="938" width="22" height="14" class="soc"/><text x="390" y="950" font-size="12">Processador</text>
+  <text x="60" y="978" font-size="11" fill="#555">GND comum em todo o circuito (plano de terra na PCB multicamadas, 10–12 camadas HDI).</text>
+  <text x="60" y="996" font-size="11" fill="#555">Capacitores de desacoplamento junto a cada pino de alimentação foram omitidos.</text>
+  </g>
+</svg>
